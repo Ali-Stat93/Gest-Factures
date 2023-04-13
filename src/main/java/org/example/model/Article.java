@@ -28,6 +28,10 @@ public class Article {
     }
 
     /** Getters & Setters **/
+    public String getDesignation() {
+        return Designation;
+    }
+
     public Categorie getCategorie() {
         return categorie;
     }
