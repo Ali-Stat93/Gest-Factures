@@ -25,7 +25,7 @@ public class Achat {
      * Prix total de l'achat
      * @return prix total selon la quantite de l'article
      */
-    public float getPrixTotal(){
+    public double getPrixTotal(){
         return this.article.getPrix()*this.quantite;
     }
 
@@ -58,5 +58,14 @@ public class Achat {
                 '\t' + formatField(11,this.article.getPrix()+" DH") +
                 '\t' + formatField(8,this.quantite+"") +
                 '\t' + formatField(10,this.getPrixTotal()+" DH") ;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof  Achat){
+            Achat achat = (Achat)obj;
+            return (achat.numAchat==this.numAchat) ? true : false;
+        }
+        return false;
     }
 }

@@ -3,7 +3,7 @@ package org.example.model;
 public class Article {
     protected int code;
     protected String Designation;
-    protected float prix;
+    protected double prix;
     protected Categorie categorie;
 
     /** Constructor **/
@@ -20,7 +20,7 @@ public class Article {
      * @param prix
      * @param categorie choix entre Informatique et Bureautique
      */
-    public Article(int code, String designation, float prix, Categorie categorie) {
+    public Article(int code, String designation, double prix, Categorie categorie) {
         this.code = code;
         Designation = designation;
         this.prix = prix;
@@ -44,7 +44,7 @@ public class Article {
      * Prix de l'article
      * @return
      */
-    public float getPrix() {
+    public double getPrix() {
         return prix;
     }
 
@@ -52,7 +52,7 @@ public class Article {
      * Changer le prix de l'article
      * @param prix
      */
-    public void setPrix(float prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -62,5 +62,14 @@ public class Article {
                 "; Designation='" + Designation + '\'' +
                 "; prix=" + prix +
                 "; categorie=" + categorie ;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof  Article){
+            Article article = (Article)obj;
+            return (article.code==this.code) ? true : false;
+        }
+        return false;
     }
 }

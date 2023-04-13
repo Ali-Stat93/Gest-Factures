@@ -41,7 +41,7 @@ public class ArticleEnSolde extends Article {
      * @return Nouveau prix
      */
     @Override
-    public float getPrix() {
+    public double getPrix() {
         return super.getPrix()*(1-this.remise/100);
     }
 }
