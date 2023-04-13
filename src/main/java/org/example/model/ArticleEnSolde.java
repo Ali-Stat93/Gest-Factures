@@ -7,6 +7,7 @@ public class ArticleEnSolde extends Article {
 
     /**
      * Constructeur par default
+     * @param remise chiffre entre 0 et 100
      */
     public ArticleEnSolde(float remise) {
         this.remise=remise;
@@ -18,7 +19,7 @@ public class ArticleEnSolde extends Article {
      * @param designation
      * @param prix
      * @param categorie
-     * @param remise
+     * @param remise chiffre entre 0 et 100
      */
     public ArticleEnSolde(int code, String designation, float prix, Categorie categorie, float remise) {
         super(code, designation, prix, categorie);
@@ -26,7 +27,15 @@ public class ArticleEnSolde extends Article {
     }
 
     /** Getters & Setters **/
-    
+
+    /**
+     * Remise
+     * @return chiffre entre 0 et 100
+     */
+    public float getRemise() {
+        return remise;
+    }
+
     /**
      * Prix de l'article aprés la remise
      * @return Nouveau prix
