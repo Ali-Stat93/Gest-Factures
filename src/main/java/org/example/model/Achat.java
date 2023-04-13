@@ -1,5 +1,8 @@
 package org.example.model;
 
+import java.math.BigDecimal;
+import java.util.Arrays;
+
 public class Achat {
     private int numAchat;
     private Article article;
@@ -46,8 +49,8 @@ public class Achat {
     private static String formatField(int taille, String champ){
         char[] field = new char[taille];
         for(int i=0;i<field.length;i++)
-            field[i]=champ.charAt(i);
-         return field.toString();
+            field[i]=(i<champ.length())?champ.charAt(i):' ';
+         return String.valueOf(field);
 
     }
     @Override
@@ -55,9 +58,9 @@ public class Achat {
 
         return formatField(20,this.article.getDesignation()) +
                 '\t' + formatField(6,getRemise()) +
-                '\t' + formatField(11,this.article.getPrix()+" DH") +
+                '\t' + formatField(11, (new BigDecimal(this.article.getPrix())).setScale(2,BigDecimal.ROUND_CEILING)+" DH") +
                 '\t' + formatField(8,this.quantite+"") +
-                '\t' + formatField(10,this.getPrixTotal()+" DH") ;
+                '\t' + formatField(10,(new BigDecimal(this.getPrixTotal()).setScale(2,BigDecimal.ROUND_CEILING))+" DH") ;
     }
 
     @Override

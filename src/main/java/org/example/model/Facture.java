@@ -1,5 +1,6 @@
 package org.example.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -69,8 +70,8 @@ public class Facture {
                 "Liste des achats\n"+
                 "Désignation         \tremise\tprix(en DH)\tquantité\tprix Total\n";
         for(Achat achat:achats)
-            text+=achat.toString();
-        text +="\nMontant de la facture: "+this.montantFacture();
+            text+=achat.toString()+'\n';
+        text +="\nMontant de la facture: "+(new BigDecimal(this.montantFacture()).setScale(2,BigDecimal.ROUND_CEILING))+" DH";
 
         return text;
     }
